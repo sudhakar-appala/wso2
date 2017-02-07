@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api" name="test" xmlns="http://ws.apache.org/ns/synapse">
+    <resource methods="GET">
+        <inSequence>
+            <log level="full">
+                <property expression="json-eval($.)" name="log"/>
+            </log>
+            <send>
+                <endpoint>
+                    <http method="get" uri-template="https://jsonplaceholder.typicode.com/posts/1"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+        <faultSequence/>
+    </resource>
+</api>
