@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="log-sequence" trace="enable" xmlns="http://ws.apache.org/ns/synapse">
+  <property description="" expression="$url:param" name="test-property"
+    scope="default" type="STRING"/>
+  <log description="log-mediator">
+    <property name="=@@@@@@@@@@@@property_name" value="my hard coded property value"/>
+    <property expression="$ctx:test-property" name="++++++++property_name"/>
+  </log>
+  <payloadFactory media-type="json">
+    <format>
+    {
+"param":"$1"
+}
+</format>
+    <args>
+      <arg evaluator="xml" expression="$ctx:test-property"/>
+    </args>
+  </payloadFactory>
+  <property name="messageType" scope="axis2" type="STRING" value="application/xml"/>
+  <respond/>
+</sequence>

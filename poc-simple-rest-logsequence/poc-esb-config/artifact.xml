@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="log-sequence" groupId="com.example.poc-esb-config.sequence" version="1.0.0" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/log-sequence.xml</file>
+    </artifact>
+    <artifact name="test" groupId="com.example.poc-esb-config.api" version="1.0.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/test.xml</file>
+    </artifact>
+</artifacts>

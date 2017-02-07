@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api context="/api" name="test" xmlns="http://ws.apache.org/ns/synapse">
+  <resource inSequence="log-sequence" methods="GET" protocol="http" url-mapping="/log">
+    <outSequence/>
+    <faultSequence/>
+  </resource>
+</api>
