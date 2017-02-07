@@ -1,0 +1,32 @@
+map_S_root_S_root = function(){ 
+var outputroot={};
+
+var count_i_companyCountryName = 0;
+outputroot =  {};
+outputroot.id = id_function(inputroot.message.sellerCompanyUid);
+outputroot.doc_type = 'sellercompany';
+outputroot.sellercompany_id = inputroot.message.sellerCompanyUid;
+outputroot.sellercompany_name = inputroot.message.name;
+outputroot.sellercompany_address_line1 = inputroot.message.addressLine1;
+outputroot.sellercompany_city = inputroot.message.addressCity;
+outputroot.sellercompany_postalcode = inputroot.message.addressZip;
+outputroot.copart_company_flag = inputroot.message.companyStatus;
+outputroot.sellercompany_country_names =  [];
+
+for(i_companyCountryName in inputroot.message.companyCountryName){
+outputroot.sellercompany_country_names[count_i_companyCountryName] = inputroot.message.companyCountryName[i_companyCountryName];
+
+count_i_companyCountryName++;
+}
+return outputroot;
+};
+
+
+
+
+
+
+
+
+
+id_function = function(in1){ return ("sellercompany " + in1);};

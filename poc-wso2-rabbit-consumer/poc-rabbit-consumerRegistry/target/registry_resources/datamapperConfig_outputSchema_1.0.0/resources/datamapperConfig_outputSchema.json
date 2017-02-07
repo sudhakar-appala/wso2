@@ -1,0 +1,52 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "id" : "http://wso2jsonschema.org/id",
+      "type" : "string"
+    },
+    "doc_type" : {
+      "id" : "http://wso2jsonschema.org/doc_type",
+      "type" : "string"
+    },
+    "sellercompany_id" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_id",
+      "type" : "number"
+    },
+    "sellercompany_name" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_name",
+      "type" : "string"
+    },
+    "sellercompany_address_line1" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_address_line1",
+      "type" : "string"
+    },
+    "sellercompany_address_line2" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_address_line2",
+      "type" : "string"
+    },
+    "sellercompany_city" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_city",
+      "type" : "string"
+    },
+    "sellercompany_postalcode" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_postalcode",
+      "type" : "string"
+    },
+    "copart_company_flag" : {
+      "id" : "http://wso2jsonschema.org/copart_company_flag",
+      "type" : "string"
+    },
+    "sellercompany_country_names" : {
+      "id" : "http://wso2jsonschema.org/sellercompany_country_names",
+      "type" : "array",
+      "items" : [ {
+        "id" : "http://wso2jsonschema.org/sellercompany_country_names/0",
+        "type" : "string"
+      } ]
+    }
+  }
+}

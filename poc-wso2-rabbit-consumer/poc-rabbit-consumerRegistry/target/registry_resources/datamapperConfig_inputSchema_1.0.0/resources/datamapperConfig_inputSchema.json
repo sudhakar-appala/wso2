@@ -1,0 +1,78 @@
+{
+  "$schema" : "http://wso2.org/json-schema/wso2-data-mapper-v5.0.0/schema#",
+  "id" : "http://wso2jsonschema.org",
+  "title" : "root",
+  "type" : "object",
+  "properties" : {
+    "eventVersion" : {
+      "id" : "http://wso2jsonschema.org/eventVersion",
+      "type" : "string"
+    },
+    "eventSource" : {
+      "id" : "http://wso2jsonschema.org/eventSource",
+      "type" : "string"
+    },
+    "eventTime" : {
+      "id" : "http://wso2jsonschema.org/eventTime",
+      "type" : "string"
+    },
+    "eventEnv" : {
+      "id" : "http://wso2jsonschema.org/eventEnv",
+      "type" : "string"
+    },
+    "eventEntity" : {
+      "id" : "http://wso2jsonschema.org/eventEntity",
+      "type" : "string"
+    },
+    "eventType" : {
+      "id" : "http://wso2jsonschema.org/eventType",
+      "type" : "string"
+    },
+    "correlationId" : {
+      "id" : "http://wso2jsonschema.org/correlationId",
+      "type" : "string"
+    },
+    "eventCreatedUser" : {
+      "id" : "http://wso2jsonschema.org/eventCreatedUser",
+      "type" : "string"
+    },
+    "message" : {
+      "id" : "http://wso2jsonschema.org/message",
+      "type" : "object",
+      "properties" : {
+        "sellerCompanyUid" : {
+          "id" : "http://wso2jsonschema.org/message/sellerCompanyUid",
+          "type" : "string"
+        },
+        "name" : {
+          "id" : "http://wso2jsonschema.org/message/name",
+          "type" : "string"
+        },
+        "addressLine1" : {
+          "id" : "http://wso2jsonschema.org/message/addressLine1",
+          "type" : "string"
+        },
+        "addressCity" : {
+          "id" : "http://wso2jsonschema.org/message/addressCity",
+          "type" : "string"
+        },
+        "addressZip" : {
+          "id" : "http://wso2jsonschema.org/message/addressZip",
+          "type" : "string"
+        },
+        "companyStatus" : {
+          "id" : "http://wso2jsonschema.org/message/companyStatus",
+          "type" : "string"
+        },
+        "companyCountryName" : {
+          "id" : "http://wso2jsonschema.org/message/companyCountryName",
+          "type" : "array",
+          "items" : [ {
+            "id" : "http://wso2jsonschema.org/message/companyCountryName/0",
+            "type" : "string"
+          } ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy name="rabbit-consumer-proxy" startOnLoad="true" transports="rabbitmq" xmlns="http://ws.apache.org/ns/synapse">
+    <target>
+        <inSequence>
+            <property name="Content-Type" scope="transport" type="STRING" value="application/json"/>
+            <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+            <log level="full">
+                <property expression="json-eval($.)" name="log"/>
+            </log>
+            <property name="OUT_ONLY" scope="default" type="STRING" value="false"/>
+            <property name="FORCE_SC_ACCEPTED" scope="axis2" type="STRING" value="true"/>
+            <datamapper config="gov:datamapper/datamapperConfig.dmc" inputSchema="gov:datamapper/datamapperConfig_inputSchema.json" inputType="JSON" outputSchema="gov:datamapper/datamapperConfig_outputSchema.json" outputType="JSON"/>
+            <!--    <property name="ContentType"  type="STRING" value="application/json"/> -->
+            <!-- <property name="messageType" scope="axis2" type="STRING" value="application/json"/> -->
+            <payloadFactory media-type="json">
+                <format>[
+$1
+]</format>
+                <args>
+                    <arg evaluator="json" expression="$."/>
+                </args>
+            </payloadFactory>
+            <log level="full"/>
+            <property expression="fn:concat('Basic ', base64Encode('sadmin:GDevSolr6'))" name="Authorization" scope="transport" type="STRING" xmlns:ns="http://org.apache.synapse/xsd"/>
+            <send>
+                <endpoint>
+                    <http method="post" uri-template="http://g2-solr-dev.copart.com/solr/g_dev03_mstdata/update"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+        </outSequence>
+        <faultSequence>
+            <log level="full"/>
+        </faultSequence>
+    </target>
+    <parameter name="rabbitmq.exchange.name">exchange</parameter>
+    <parameter name="rabbitmq.queue.name">queue</parameter>
+    <parameter name="rabbitmq.connection.factory">AMQPConnectionFactory</parameter>
+</proxy>
